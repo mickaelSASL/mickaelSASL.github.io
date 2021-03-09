@@ -1,0 +1,102 @@
+<html>
+	<head>
+		<title>Comparaison GET POST</title>
+		<meta charset="utf8">
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script type="text/JavaScript">
+			function charge(){
+				$("#adresse").text(window.location.href);
+			}
+		</script>
+	</head>
+	
+	<body>
+
+		<form id="form_get" method="get" action="https://nsi-sasl.alwaysdata.net/exo/IHM/formulaires/test_form_url.php" style="background-color:#ffb3b3" target="resultat">
+		 
+			<fieldset>
+				<legend><strong>Forumlaire</strong></legend> <!-- Titre du fieldset --> 
+				<fieldset>
+				   <legend>Vos coordonnées</legend> <!-- Titre du fieldset --> 
+
+				   <label for="nom">Quel est votre nom ?</label>
+				   <input type="text" name="nom" id="nom" onchange="$('#nom2').val($('#nom').val());"/>
+
+				   <label for="prenom">Quel est votre prénom ?</label>
+				   <input type="text" name="prenom" id="prenom" onchange="$('#prenom2').val($('#prenom').val());"/>
+			 
+				   <label for="email">Quel est votre e-mail ?</label>
+				   <input type="email" name="email" id="email" onchange="$('#email2').val($('#email').val());"/>
+
+				</fieldset>
+			 
+				<fieldset>
+				   <legend>Votre souhait</legend> <!-- Titre du fieldset -->
+			 
+				   <p>
+					   Faites un souhait que vous voudriez voir exaucé :
+
+					   <input type="radio" name="souhait" value="riche" id="riche" onchange="$('#riche2').prop('checked',$('#riche').prop('checked'));"/> <label for="riche">Etre riche</label>
+					   <input type="radio" name="souhait" value="célèbre" id="celebre" onchange="$('#celebre2').prop('checked',$('#celebre').prop('checked'));"/> <label for="celebre">Etre célèbre</label>
+					   <input type="radio" name="souhait" value="intelligent" id="intelligent" onchange="$('#intelligent2').prop('checked',$('#intelligent').prop('checked'));"/> <label for="intelligent">Etre <strong>encore</strong> plus intelligent</label>
+					   <input type="radio" name="souhait" value="autre" id="autre" onchange="$('#autre2').prop('checked',$('#autre').prop('checked'));"/> <label for="autre">Autre...</label>
+				   </p>
+			 
+				   <p>
+					   <label for="precisions">Si "Autre", veuillez préciser :</label>
+					   <textarea name="precisions" id="precisions" cols="40" rows="4" onchange="$('#precisions2').val($('#precisions').val());"></textarea>
+				   </p>
+				</fieldset>
+				 <input type="submit" value="Envoyer" onclick="document.getElementById('form_post').submit();"/>
+			</fieldset>
+		</form>
+		
+		<strong>GET</strong>
+		<iframe name="resultat" id="resultat" width="100%" height="300px"  src="https://nsi-sasl.alwaysdata.net/exo/IHM/formulaires/test_form_url.php"></iframe>
+	
+		<span style="display:none">
+		<form id="form_post" method="post" action="https://nsi-sasl.alwaysdata.net/exo/IHM/formulaires/test_form_url.php" style="background-color:#b3ffb3" target="resultat2">
+		 
+			<fieldset>
+				<legend>Forumlaire POST</legend> <!-- Titre du fieldset --> 
+				<fieldset>
+				   <legend>Vos coordonnées</legend> <!-- Titre du fieldset --> 
+
+				   <label for="nom">Quel est votre nom ?</label>
+				   <input type="text" name="nom" id="nom2" />
+
+				   <label for="prenom">Quel est votre prénom ?</label>
+				   <input type="text" name="prenom" id="prenom2" />
+			 
+				   <label for="email">Quel est votre e-mail ?</label>
+				   <input type="email" name="email" id="email2" />
+
+				</fieldset>
+			 
+				<fieldset>
+				   <legend>Votre souhait</legend> <!-- Titre du fieldset -->
+			 
+				   <p>
+					   Faites un souhait que vous voudriez voir exaucé :
+
+					   <input type="radio" name="souhait" value="riche" id="riche2" /> <label for="riche">Etre riche</label>
+					   <input type="radio" name="souhait" value="célèbre" id="celebre2" /> <label for="celebre">Etre célèbre</label>
+					   <input type="radio" name="souhait" value="intelligent" id="intelligent2" /> <label for="intelligent">Etre <strong>encore</strong> plus intelligent</label>
+					   <input type="radio" name="souhait" value="autre" id="autre2" /> <label for="autre">Autre...</label>
+				   </p>
+			 
+				   <p>
+					   <label for="precisions">Si "Autre", veuillez préciser :</label>
+					   <textarea name="precisions" id="precisions2" cols="40" rows="4"></textarea>
+				   </p>
+				</fieldset>
+				 <input type="submit" value="Envoyer" />
+			</fieldset>
+		</form>
+		</span>
+		
+		<strong>POST</strong>
+		<iframe name="resultat2" id="resultat" width="100%" height="300px"  src="https://nsi-sasl.alwaysdata.net/exo/IHM/formulaires/test_form_url.php"></iframe>
+
+	</body>
+</html>
